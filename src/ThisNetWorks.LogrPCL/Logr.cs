@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using ThisNetWorks.LogrPCL;
 using ThisNetWorks.LogrPCL.Abstractions;
 using ThisNetWorks.LogrPCL.Writer;
