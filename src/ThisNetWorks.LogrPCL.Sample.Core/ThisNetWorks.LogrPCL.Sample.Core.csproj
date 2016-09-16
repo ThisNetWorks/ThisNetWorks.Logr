@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E6AA46D-915C-4C2A-811D-3484021C00E3}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ThisNetWorks.LogrPCL.Sample.Core</RootNamespace>
+    <AssemblyName>ThisNetWorks.LogrPCL.Sample.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;PCL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>PCL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CoreLogrSample.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Constants\InsightsKey.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThisNetWorks.LogrPCL\ThisNetWorks.LogrPCL.csproj">
+      <Project>{39865982-1886-4A6B-9F5F-D1837974532A}</Project>
+      <Name>ThisNetWorks.LogrPCL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThisNetWorks.LogrPCL.Abstractions\ThisNetWorks.LogrPCL.Abstractions.csproj">
+      <Project>{8C2E550E-5311-4393-9719-957B34C3880C}</Project>
+      <Name>ThisNetWorks.LogrPCL.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThisNetWorks.LogrPCL.Writer\ThisNetWorks.LogrPCL.Writer.csproj">
+      <Project>{E8665BDB-240C-4C95-B57A-F1FBFD6DDF8E}</Project>
+      <Name>ThisNetWorks.LogrPCL.Writer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\ThisNetWorks.LogrPCL.Sample.Shared\Xamarin.LogrPCL.Sample.Shared.projitems" Label="Shared" Condition="Exists('..\ThisNetWorks.LogrPCL.Sample.Shared\Xamarin.LogrPCL.Sample.Shared.projitems')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+</Project>
