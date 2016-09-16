@@ -22,13 +22,15 @@ namespace ThisNetWorks.LogrPCL.Sample.iOS
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-			Xamarin.Insights.Initialize(InsightsKey.XamInsightsKey);
+			//Xamarin.Insights.Initialize(InsightsKey.XamInsightsKey);
 
 			//disable insights reporting
 			LogrWriterInstance.Instance.Settings.Insights.ShouldTryReportToInsights = false;
 			LogrWriterInstance.Instance.Settings.Insights.OnlySendLogFileInDebug = true;
 			var coreSample = new CoreLogrSample();
 			var frontLogrSample = new LogrSample("iOS Front");
+			var testFrontLogString = "iOS Front String";
+			testFrontLogString.ToLogr(nameof(testFrontLogString));
 
 			////swap out the LogrWriter with a (potentially) different implementation
 			//var logr = new LogrWriter();

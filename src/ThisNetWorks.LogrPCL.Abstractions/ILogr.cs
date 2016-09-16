@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
+
 namespace ThisNetWorks.LogrPCL.Abstractions
 {
 	public interface ILogr
