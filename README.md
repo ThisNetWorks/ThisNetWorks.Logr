@@ -1,4 +1,4 @@
-# Vurtigo.Logr
+# ThisNetWorks.Logr
 
 A lightweight Cross platform Logger for Xamarin.
 
@@ -36,7 +36,7 @@ LogrWriterInstance.Instance = logr;
 
 https://www.nuget.org/packages/Xamarin.Logr
 
-Add Vurtigo.Logr to your PCL and platform projects. Currently supported platforms are:
+Add ThisNetWorks.Logr to your PCL and platform projects. Currently supported platforms are:
 
 - Xamarin.Android
 - Xamarin.iOS
