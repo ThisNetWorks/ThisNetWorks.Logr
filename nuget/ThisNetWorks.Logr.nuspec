@@ -5,8 +5,8 @@
     <version>1.0.0</version>
     <authors>Dean Marcussen</authors>
     <owners>Dean Marcussen</owners>
-    <licenseUrl>https://github.com/thisnetworks/thisnetworks.Logr/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/thisnetworks/thisnetworks.Logr</projectUrl>
+    <licenseUrl>https://github.com/ThisNetWorks/ThisNetWorks.Logr/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/ThisNetWorks/ThisNetWorks.Logr</projectUrl>
     <iconUrl>https://www.nuget.org/Content/Images/packageDefaultIcon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <title>Xamarin Cross Platform Logging Service</title>
