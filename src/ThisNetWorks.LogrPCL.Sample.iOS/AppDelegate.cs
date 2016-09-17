@@ -29,8 +29,14 @@ namespace ThisNetWorks.LogrPCL.Sample.iOS
 			LogrWriterInstance.Instance.Settings.Insights.OnlySendLogFileInDebug = true;
 			var coreSample = new CoreLogrSample();
 			var frontLogrSample = new LogrSample("iOS Front");
-			var testFrontLogString = "iOS Front String";
-			testFrontLogString.ToLogr(nameof(testFrontLogString));
+			//var testFrontLogString = "iOS Front String".ToLogrTest();
+			//testFrontLogString.ToLogr(nameof(testFrontLogString));
+
+			//var testObj = "Test Generic".ToLogrTest();
+
+			//coreSample.ToLogrTest();
+
+			//var complex = new ComplexObjectSample().ToLogrTest();
 
 			////swap out the LogrWriter with a (potentially) different implementation
 			//var logr = new LogrWriter();
