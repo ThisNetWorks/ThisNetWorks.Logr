@@ -33,6 +33,7 @@
     <Compile Include="CoreLogrSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Constants\InsightsKey.cs" />
+    <Compile Include="ComplexObjectSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Constants\" />

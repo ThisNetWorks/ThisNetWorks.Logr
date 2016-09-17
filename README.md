@@ -31,17 +31,15 @@ To swap out the LogrWriter to your own implementation, inherit from ILogrWriter,
 var logr = new CustomLogrWriter();
 LogrWriterInstance.Instance = logr;
 ```
-Version 1.0.1
 
-Added object.ToLogr Extension Method. When used on an object this will direct the .ToString() output of the object to the Logr.Debug console output. Also added functionality to this method to catch the calling method, and line number, and report this to the console. I can't catch the variable name however so have been using nameof(object) to send an extra message with the variable name to the Logr.
+Version 1.0.2
 
+Added object.ToLogr Extension Method. When used on an object this will direct the .ToString() output of the object to the Logr.Debug console output. Also added functionality to this method to catch the calling method, and line number, and report this to the console. This extension will return the object logged so it can be used as part of an object creation line. It only operates in Debug mode, so will have no performance impact on Release Builds. 
 ```
-var stringToLog = "I'm a string":
-stringToLog.ToLogr();
+var stringToLog = "I'm a string".ToLogr();
 stringToLog.ToLogr(nameof(stringToLog));
 
 ```
-
 
 ## Nuget
 
