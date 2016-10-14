@@ -23,6 +23,11 @@ namespace Project.Core
 					Logr.Warn(tag + ":" + level + ":" + message);
 					break;
 				case MvxTraceLevel.Error:
+				//Logging to error here can cause to many log messages if, for example, you bind to a url image property which doesn't exist
+				//on the server - mvx will throw an error, which will get logged. Keep it in if you want to see this behaviour, change
+				//it to Logr.Warn if you want to suppress these kind of error's getting thrown to Insights. I tend to leave it in while beta
+				//testing and take it out later - mostly because the less logging to logcat, the faster the application runs.
+				
 					Logr.Error(tag + ":" + level + ":" + message);
 					break;
 			}
