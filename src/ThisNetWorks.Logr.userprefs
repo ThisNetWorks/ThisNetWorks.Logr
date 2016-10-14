@@ -1,6 +1,14 @@
 ﻿<Properties StartupConfiguration="{6D22748E-A52E-4B6E-B790-21C24D9384F9}|Default">
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ThisNetWorks.LogrPCL.Writer.Shared/LogrWriterInsightsSettingsBase.cs">
+    <Files>
+      <File FileName="ThisNetWorks.LogrPCL.Sample.Droid/MainActivity.cs" Line="30" Column="56" />
+      <File FileName="ThisNetWorks.LogrPCL.Writer.Shared/LogrWriterInstance.cs" Line="1" Column="1" />
+      <File FileName="ThisNetWorks.LogrPCL.Writer.Shared/LogrWriterSettingsBase.cs" Line="1" Column="1" />
+      <File FileName="ThisNetWorks.LogrPCL.Writer.Shared/LogrWriterInsightsSettingsBase.cs" Line="6" Column="9" />
+      <File FileName="ThisNetWorks.LogrPCL.Abstractions/ILogrWriterInsightsSettings.cs" Line="14" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
