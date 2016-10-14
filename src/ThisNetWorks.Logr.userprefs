@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{6D22748E-A52E-4B6E-B790-21C24D9384F9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ThisNetWorks.LogrPCL.Sample.Droid/MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ThisNetWorks.LogrPCL.Writer.Shared/LogrWriterInsightsSettingsBase.cs">
     <Files>
       <File FileName="ThisNetWorks.LogrPCL/LogrExtensions.cs" Line="10" Column="36" />
       <File FileName="ThisNetWorks.LogrPCL.Sample.iOS/AppDelegate.cs" Line="25" Column="62" />
@@ -11,6 +11,9 @@
       <File FileName="ThisNetWorks.LogrPCL.Sample.Core/CoreLogrSample.cs" Line="14" Column="60" />
       <File FileName="ThisNetWorks.LogrPCL.Abstractions/ILogr.cs" Line="8" Column="30" />
       <File FileName="ThisNetWorks.LogrPCL.Sample.Droid/MainActivity.cs" Line="26" Column="1" />
+      <File FileName="ThisNetWorks.LogrPCL.Writer.Shared/LogrWriterSettingsBase.cs" Line="1" Column="1" />
+      <File FileName="ThisNetWorks.LogrPCL.Writer.Droid/LogrWriterInsightsSettings.cs" Line="1" Column="1" />
+      <File FileName="ThisNetWorks.LogrPCL.Writer.Shared/LogrWriterInsightsSettingsBase.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
