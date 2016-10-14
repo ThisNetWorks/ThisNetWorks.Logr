@@ -3,6 +3,7 @@ using Android.Widget;
 using Android.OS;
 using ThisNetWorks.LogrPCL.Sample.Core;
 using ThisNetWorks.LogrPCL.Sample.Shared;
+using ThisNetWorks.LogrPCL.Writer;
 
 namespace ThisNetWorks.LogrPCL.Sample.Droid
 {
@@ -27,7 +28,6 @@ namespace ThisNetWorks.LogrPCL.Sample.Droid
 
 			var coreSample = new CoreLogrSample();
 			var frontLogrSample = new LogrSample("Droid Front");
-
 			//swap out the LogrWriter with a (potentially) different implementation
 			//var logr = new LogrWriter();
 			//LogrWriterInstance.Instance = logr;

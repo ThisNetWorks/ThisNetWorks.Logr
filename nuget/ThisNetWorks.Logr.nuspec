@@ -26,6 +26,7 @@ Support includes console logging and configurable reporting to Xamarin.Insights.
 		<file src="../src/ThisNetWorks.LogrPCL/bin/Release/ThisNetWorks.LogrPCL.dll" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/ThisNetWorks.LogrPCL.dll" />
 
 		<file src="../src/ThisNetWorks.LogrPCL.Abstractions/bin/Release/ThisNetWorks.LogrPCL.Abstractions.dll" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/ThisNetWorks.LogrPCL.Abstractions.dll" />
+		<file src="../src/ThisNetWorks.LogrPCL.Abstractions/bin/Release/ThisNetWorks.LogrPCL.Abstractions.xml" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/ThisNetWorks.LogrPCL.Abstractions.xml" />
 		
 		<file src="../src/ThisNetWorks.LogrPCL.Writer/bin/Release/ThisNetWorks.LogrPCL.Writer.dll" target="lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/ThisNetWorks.LogrPCL.Writer.dll" />	
 		
@@ -37,6 +38,8 @@ Support includes console logging and configurable reporting to Xamarin.Insights.
 		
 		<file src="../src/ThisNetWorks.LogrPCL.Abstractions/bin/Release/ThisNetWorks.LogrPCL.Abstractions.dll" target="lib/Xamarin.iOS10/ThisNetWorks.LogrPCL.Abstractions.dll" />
 		
+		<file src="../src/ThisNetWorks.LogrPCL.Abstractions/bin/Release/ThisNetWorks.LogrPCL.Abstractions.xml" target="lib/Xamarin.iOS10/ThisNetWorks.LogrPCL.Abstractions.xml" />		
+		
 		<file src="../src/ThisNetWorks.LogrPCL.Writer.iOS/bin/Release/ThisNetWorks.LogrPCL.Writer.dll" target="lib/Xamarin.iOS10/ThisNetWorks.LogrPCL.Writer.dll" />
 		
 		<!--Xamarin.Droid-->
@@ -46,7 +49,9 @@ Support includes console logging and configurable reporting to Xamarin.Insights.
 		<file src="../src/ThisNetWorks.LogrPCL/bin/Release/ThisNetWorks.LogrPCL.dll" target="lib/MonoAndroid10/ThisNetWorks.LogrPCL.dll" />
 		
 		<file src="../src/ThisNetWorks.LogrPCL.Abstractions/bin/Release/ThisNetWorks.LogrPCL.Abstractions.dll" target="lib/MonoAndroid10/ThisNetWorks.LogrPCL.Abstractions.dll" />
-		
+
+		<file src="../src/ThisNetWorks.LogrPCL.Abstractions/bin/Release/ThisNetWorks.LogrPCL.Abstractions.xml" target="lib/MonoAndroid10/ThisNetWorks.LogrPCL.Abstractions.xml" />
+				
 		<file src="../src/ThisNetWorks.LogrPCL.Writer.Droid/bin/Release/ThisNetWorks.LogrPCL.Writer.dll" target="lib/MonoAndroid10/ThisNetWorks.LogrPCL.Writer.dll" />		
 		
 		</files>
