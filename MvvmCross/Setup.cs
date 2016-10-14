@@ -1,4 +1,4 @@
-//in your platform setup class use this override
+//in your platform setup class (setup.cs) use this override
 
 		protected override IMvxTrace CreateDebugTrace()
 		{
