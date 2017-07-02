@@ -19,8 +19,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
@@ -32,8 +30,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
@@ -52,6 +48,7 @@
     <Compile Include="LogrWriter.cs" />
     <Compile Include="LogrWriterSettings.cs" />
     <Compile Include="LogrWriterInsightsSettings.cs" />
+    <Compile Include="LogrWriterMobileCentreSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThisNetWorks.LogrPCL.Abstractions\ThisNetWorks.LogrPCL.Abstractions.csproj">

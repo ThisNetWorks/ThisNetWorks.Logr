@@ -14,7 +14,9 @@ Logr.Error(e, "Error Message {1}", args);
 
 If Xamarin.Insights is installed (and initialized) Logr will send Logr.Error message to Insights. Xamarin Insights should be initialized before writing any logs.
 
-On Android Logr will also send the last 500 lines of logcat (configurable) to Insights. 
+If Azure Mobile Centre is installed (and initialized) Logr will send Logr.Error message to Mobile Centre. Mobile Centre should be configured before writing any logs.
+
+On Android Logr will also send the last 500 lines of logcat (configurable) to Insights, or Mobile Centre. 
 By default it will only do this in Debug mode, but can be turned on for Release if you're trying to pin down an exception. You could also turn it on in specific places in your code and turn it off again afterwards.
 
 To configure Logr, for example, to disable Insights reporting, access the LogrWriter Settings class.
@@ -23,6 +25,14 @@ To configure Logr, for example, to disable Insights reporting, access the LogrWr
 LogrWriterInstance.Instance.Settings.Insights.LogNumberOfLines = 10;
 LogrWriterInstance.Instance.Settings.Insights.ShouldTryReportToInsights = false;
 LogrWriterInstance.Instance.Settings.Insights.OnlySendLogFileInDebug = true;
+```
+
+Or to disable Mobile Centre reporting, access the LogrWriter Settings class.
+
+```
+LogrWriterInstance.Instance.Settings.MobileCentre.LogNumberOfLines = 10;
+LogrWriterInstance.Instance.Settings.MobileCentre.ShouldTryReportToMobileCentre = false;
+LogrWriterInstance.Instance.Settings.MobileCentre.OnlySendLogFileInDebug = true;
 ```
 
 To swap out the LogrWriter to your own implementation, inherit from ILogrWriter, and replace the instance.

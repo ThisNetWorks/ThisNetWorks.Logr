@@ -4,6 +4,11 @@ using Android.OS;
 using ThisNetWorks.LogrPCL.Sample.Core;
 using ThisNetWorks.LogrPCL.Sample.Shared;
 using ThisNetWorks.LogrPCL.Writer;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
+using System;
+using System.Linq;
 
 namespace ThisNetWorks.LogrPCL.Sample.Droid
 {
@@ -24,7 +29,20 @@ namespace ThisNetWorks.LogrPCL.Sample.Droid
 			Button button = FindViewById<Button>(Resource.Id.myButton);
 
 			button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
-			Xamarin.Insights.Initialize(InsightsKey.XamInsightsKey, this);
+
+			//Xamarin.Insights.Initialize(InsightsKey.XamInsightsKey, this);
+
+			var mobileCenterAssem = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetName().Name == "Microsoft.Azure.Mobile");
+			var mobileCenterType = mobileCenterAssem.GetType("Microsoft.Azure.Mobile.MobileCenter");
+
+			var isConfigured = (bool)mobileCenterType.GetProperty("Configured").GetValue(null);
+
+
+			MobileCenter.Start("83876814-c344-41a9-b712-223bb575a901",
+				   typeof(Analytics), typeof(Crashes));
+
+            LogrWriterInstance.Instance.Settings.MobileCentre.ShouldTryReportToMobileCentre = true;
+            LogrWriterInstance.Instance.Settings.MobileCentre.OnlySendLogFileInDebug = true;
 
 			var coreSample = new CoreLogrSample();
 			var frontLogrSample = new LogrSample("Droid Front");

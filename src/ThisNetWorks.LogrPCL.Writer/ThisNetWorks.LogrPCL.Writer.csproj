@@ -36,6 +36,7 @@
     <Compile Include="LogrWriter.cs" />
     <Compile Include="LogrWriterSettings.cs" />
     <Compile Include="LogrWriterInsightsSettings.cs" />
+    <Compile Include="LogrWriterMobileCenterSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThisNetWorks.LogrPCL.Abstractions\ThisNetWorks.LogrPCL.Abstractions.csproj">

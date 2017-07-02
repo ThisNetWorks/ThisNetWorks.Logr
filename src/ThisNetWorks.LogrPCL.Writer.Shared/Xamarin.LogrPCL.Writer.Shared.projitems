@@ -15,5 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)LogrWriterInsightsSettingsBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TailExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogrException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LogrWriterMobileCentreSettingsBase.cs" />
   </ItemGroup>
 </Project>

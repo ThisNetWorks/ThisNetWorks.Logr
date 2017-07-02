@@ -25,7 +25,7 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 		}
 
 		public ILogrWriterInsightsSettings Insights { get; set; } = new LogrWriterInsightsSettings();
-
+        public ILogrWriterMobileCentreSettings MobileCentre { get; set; } = new LogrWriterMobileCentreSettings();
 		protected abstract bool InitializeDebug();
 	}
 }

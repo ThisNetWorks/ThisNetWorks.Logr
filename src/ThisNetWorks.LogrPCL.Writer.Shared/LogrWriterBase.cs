@@ -4,7 +4,7 @@ using ThisNetWorks.LogrPCL.Abstractions;
 using System.Linq;
 using System.Collections.Generic;
 
-#if !PCL
+//#if !PCL
 namespace ThisNetWorks.LogrPCL.Writer.Shared
 {
 	public abstract class LogrWriterBase
@@ -17,6 +17,8 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 		protected abstract void LogWarn(string message);
 		protected abstract void LogError(string message, Exception e);
 		protected abstract void AddLogFileToInsights(IDictionary<string, string> dict);
+
+        protected abstract string AddLogFileToMobileCenter(string message);
 
 		public void LogrWrite(LogrLevel logrLevel, string message, Exception e = null, params object[] args)
 		{
@@ -69,6 +71,26 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 		}
 
 
+		protected virtual void ReportToMobileCenter(string tag, Exception e, string message)
+		{
+			if (Settings.MobileCentre.ShouldTryReportToMobileCentre == false)
+				return;
+
+			if (Settings.MobileCentre.MobileCentreReportMethod == null)
+				return;
+
+
+			if (Settings.MobileCentre.OnlySendLogFileInDebug && Settings.IsDebug && Settings.MobileCentre.ShouldSendLogFile)
+                message = AddLogFileToMobileCenter(message);
+			else if (Settings.Insights.OnlySendLogFileInDebug == false && Settings.Insights.ShouldSendLogFile)
+				message = AddLogFileToMobileCenter(message);
+
+			object[] parametersArray = new object[] { "ThisNetworksLogr", message };
+
+            Settings.MobileCentre.MobileCentreReportMethod.Invoke(null, parametersArray);
+
+		}
+
 	}
 }
-#endif
+//#endif

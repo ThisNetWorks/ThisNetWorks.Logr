@@ -8,6 +8,7 @@ using ThisNetWorks.LogrPCL.Writer.Shared;
 using Android.Util;
 using System.IO;
 using Android.App;
+using System.Text;
 
 namespace ThisNetWorks.LogrPCL.Writer
 {
@@ -39,6 +40,7 @@ namespace ThisNetWorks.LogrPCL.Writer
 				e = new LogrException(message);
 
 			ReportToInsights(e, message, InsightsSeverity.Error);
+            ReportToMobileCenter(_tag, e, message);
 		}
 
 		protected override string FormatMessage(string message, params object[] args)
@@ -56,6 +58,17 @@ namespace ThisNetWorks.LogrPCL.Writer
 			return;
 		}
 
+        protected override string AddLogFileToMobileCenter(string message)
+		{
+			var appLog = ReadLog(string.Empty);
+			StringBuilder builder = new StringBuilder();
+            builder.Append(message);
+            builder.AppendLine();
+            builder.AppendLine("Console log dump");
+            builder.Append(appLog);
+            return builder.ToString();
+
+        }
 		private string ReadLog(string tag)
 		{
 			var cmd = "logcat -d";
