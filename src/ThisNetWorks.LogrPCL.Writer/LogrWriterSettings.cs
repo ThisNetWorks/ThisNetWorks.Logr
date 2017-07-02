@@ -7,6 +7,7 @@ namespace ThisNetWorks.LogrPCL.Writer
 	{
 		public bool IsDebug { get; set; }
 		public ILogrWriterInsightsSettings Insights { get; set; }
+        public ILogrWriterMobileCentreSettings MobileCentre { get; set; }
 	}
 }
 

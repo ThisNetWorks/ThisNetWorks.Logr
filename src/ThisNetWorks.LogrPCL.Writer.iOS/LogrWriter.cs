@@ -9,6 +9,9 @@ namespace ThisNetWorks.LogrPCL.Writer
 {
 	public class LogrWriter : LogrWriterBase, ILogrWriter
 	{
+        //TODO check out how tags work in MobileCenter
+        private string _tag = "Logr";
+
 		protected override void LogDebug(string message)
 		{
 			WriteToConsole(message);
@@ -34,7 +37,7 @@ namespace ThisNetWorks.LogrPCL.Writer
 			if (e != null && e.StackTrace != null)
 				WriteToConsole(e.StackTrace);
 			ReportToInsights(e, message, InsightsSeverity.Error);
-			
+			ReportToMobileCenter(_tag, e, message);
 		}
 
 		protected override string FormatMessage(string message, params object[] args)
@@ -47,6 +50,12 @@ namespace ThisNetWorks.LogrPCL.Writer
 			return messageFormatted;
 		}
 
+		protected override string AddLogFileToMobileCenter(string message)
+		{
+            //TODO not implemented on iOS
+            return message;
+
+		}
 		protected override void AddLogFileToInsights(System.Collections.Generic.IDictionary<string, string> dict)
 		{
 			//TODO not implemented on iOS
