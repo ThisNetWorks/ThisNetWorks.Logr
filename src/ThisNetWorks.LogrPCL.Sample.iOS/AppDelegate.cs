@@ -6,6 +6,8 @@ using ThisNetWorks.LogrPCL.Writer;
 using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
+using System;
+using System.Linq;
 
 namespace ThisNetWorks.LogrPCL.Sample.iOS
 {
@@ -27,8 +29,7 @@ namespace ThisNetWorks.LogrPCL.Sample.iOS
 			// If not required for your application you can safely delete this method
 			//Xamarin.Insights.Initialize(InsightsKey.XamInsightsKey);
 
-			MobileCenter.Start("88c32bd8-601d-47c0-b2d9-c9ff26fe5f48",
-				   typeof(Analytics), typeof(Crashes));
+	
 
 
 			//disable insights reporting
