@@ -52,11 +52,15 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 			var isConfigured = (bool)mobileCenterType.GetProperty("Configured").GetValue(null);
 
 
-			var isEnabled = (bool)mobileCenterType.GetProperty("Enabled").GetValue(null);
+//TODO enabled moved to async task in v0.14.0
+			//var isEnabled = (bool)mobileCenterType.GetProperty("Enabled").GetValue(null);
 
 
-            if (!isConfigured || !isEnabled)
-				return false;
+    //        if (!isConfigured || !isEnabled)
+				//return false;
+
+            if (!isConfigured)
+                return false;
             
             var crashAssem = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetName().Name == "Microsoft.Azure.Mobile.Crashes");
 			var crashType = mobileCenterAssem.GetType("Microsoft.Azure.Mobile.MobileCenterLog");
