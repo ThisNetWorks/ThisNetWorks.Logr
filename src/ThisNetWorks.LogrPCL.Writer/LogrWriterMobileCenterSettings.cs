@@ -11,5 +11,6 @@ namespace ThisNetWorks.LogrPCL.Writer
         public bool ShouldSendLogFile { get; set; }
         public int LogNumberOfLines { get; set; }
         public bool OnlySendLogFileInDebug { get; set; }
+        public string VersionCode { get; set; }
     }
 }

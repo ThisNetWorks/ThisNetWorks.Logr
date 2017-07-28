@@ -16,5 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)TailExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogrException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogrWriterMobileCentreSettingsBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StringExtension.cs" />
   </ItemGroup>
 </Project>

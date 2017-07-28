@@ -32,17 +32,22 @@ namespace ThisNetWorks.LogrPCL.Sample.Droid
 
 			//Xamarin.Insights.Initialize(InsightsKey.XamInsightsKey, this);
 
-			var mobileCenterAssem = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetName().Name == "Microsoft.Azure.Mobile");
-			var mobileCenterType = mobileCenterAssem.GetType("Microsoft.Azure.Mobile.MobileCenter");
-
-			var isConfigured = (bool)mobileCenterType.GetProperty("Configured").GetValue(null);
-
-
 			MobileCenter.Start("83876814-c344-41a9-b712-223bb575a901",
-				   typeof(Analytics), typeof(Crashes));
+	            typeof(Analytics), typeof(Crashes));
 
-            LogrWriterInstance.Instance.Settings.MobileCentre.ShouldTryReportToMobileCentre = true;
-            LogrWriterInstance.Instance.Settings.MobileCentre.OnlySendLogFileInDebug = true;
+
+			var mobileCenterAssem = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetName().Name == "Microsoft.Azure.Mobile.Analytics");
+			var mobileCenterType = mobileCenterAssem.GetType("Microsoft.Azure.Mobile.Analytics.Analytics");
+
+			//var isConfigured = (bool)mobileCenterType.GetProperty("Configured").GetValue(null);
+			var _mobileCentreReportMethod = mobileCenterType.GetMethods()
+											.FirstOrDefault(x => x.Name == "TrackEvent"
+															&& x.GetParameters().Length == 2);
+
+
+            LogrWriterInstance.Instance.Settings.MobileCentre.VersionCode = "1.0.0";
+
+			LogrWriterInstance.Instance.Settings.MobileCentre.ShouldTryReportToMobileCentre = true;
 
 			var coreSample = new CoreLogrSample();
 			var frontLogrSample = new LogrSample("Droid Front");
