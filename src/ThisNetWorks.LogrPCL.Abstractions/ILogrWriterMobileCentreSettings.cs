@@ -18,7 +18,7 @@ namespace ThisNetWorks.LogrPCL.Abstractions
 		MethodInfo MobileCentreReportMethod { get; }
 
 		/// <summary>
-		/// Gets or sets a value indicating whether Logr should send log file to Microsoft Mobile Centre. 
+		/// Gets or sets a value indicating whether Logr should send log file to Microsoft Mobile Centre - currently disabled, analytics events limited to 64 characters 
 		/// <para>&#160;</para>
 		/// <para>&#160;</para>If false OnlySendLogFileInDebug flag will be ignored.
 		/// </summary>
@@ -38,5 +38,11 @@ namespace ThisNetWorks.LogrPCL.Abstractions
 		/// <para>&#160;</para>Default is true.
 		/// </summary>
 		bool OnlySendLogFileInDebug { get; set; }
+
+        /// <summary>
+        /// Gets or sets the version code - use this to distinguish events in analytics.
+        /// </summary>
+        /// <value>The version code.</value>
+        string VersionCode { get; set; }
     }
 }

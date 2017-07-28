@@ -36,13 +36,22 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 		}
 
 
-		public virtual bool ShouldSendLogFile { get; set; } = true;
+        private bool _shouldSendLogFile;
+        public virtual bool ShouldSendLogFile { 
+            get {
+                //disabled analytics events only support 64 characters
+                //return _shouldSendLogFile;
+                return false; 
+            } set { _shouldSendLogFile = value; } } 
 
 
 		public virtual int LogNumberOfLines { get; set; } = 500;
 
 
 		public virtual bool OnlySendLogFileInDebug { get; set; } = true;
+
+
+		public virtual string VersionCode { get; set; } = "0.0.0";
 
 		protected virtual bool InitialiseMobileCentre()
 		{
@@ -62,12 +71,12 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
             if (!isConfigured)
                 return false;
             
-            var crashAssem = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetName().Name == "Microsoft.Azure.Mobile.Crashes");
-			var crashType = mobileCenterAssem.GetType("Microsoft.Azure.Mobile.MobileCenterLog");
+            var crashAssem = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetName().Name == "Microsoft.Azure.Mobile.Analytics");
+            var crashType = crashAssem.GetType("Microsoft.Azure.Mobile.Analytics.Analytics");
 
-			_mobileCentreReportMethod = mobileCenterType.GetMethods()
-														.FirstOrDefault(x => x.Name == "Error"
-																		&& x.GetParameters().Length == 3);
+			_mobileCentreReportMethod = crashType.GetMethods()
+										    .FirstOrDefault(x => x.Name == "TrackEvent"
+											&& x.GetParameters().Length == 2);
 			if (_mobileCentreReportMethod == null)
 				return false;
 

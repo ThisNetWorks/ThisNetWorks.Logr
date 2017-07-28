@@ -3,8 +3,9 @@ using System.Reflection;
 using ThisNetWorks.LogrPCL.Abstractions;
 using System.Linq;
 using System.Collections.Generic;
+using ThisNetWorks.LogrPCL;
 
-//#if !PCL
+#if !PCL
 namespace ThisNetWorks.LogrPCL.Writer.Shared
 {
 	public abstract class LogrWriterBase
@@ -22,25 +23,33 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 
 		public void LogrWrite(LogrLevel logrLevel, string message, Exception e = null, params object[] args)
 		{
-			var messageFormatted = FormatMessage(message, args);
+            try
+            {
+                var messageFormatted = FormatMessage(message, args);
 
-			switch (logrLevel) {
-				case LogrLevel.Debug:
-					if (Settings.IsDebug)
-						LogDebug(messageFormatted);
-					break;
-				case LogrLevel.Info:
-					LogInfo(messageFormatted);
-					break;
-				case LogrLevel.Warn:
-					LogWarn(messageFormatted);
-					break;
+                switch (logrLevel)
+                {
+                    case LogrLevel.Debug:
+                        if (Settings.IsDebug)
+                            LogDebug(messageFormatted);
+                        break;
+                    case LogrLevel.Info:
+                        LogInfo(messageFormatted);
+                        break;
+                    case LogrLevel.Warn:
+                        LogWarn(messageFormatted);
+                        break;
 
-				case LogrLevel.Error:
+                    case LogrLevel.Error:
 
-					LogError(messageFormatted, e);
-					break;
-			}
+                        LogError(messageFormatted, e);
+                        break;
+                }
+            } catch (Exception ex){
+                var error = "Error writing / formatting logr message " + ex.Message;
+				var messageFormatted = FormatMessageWithTime(error);
+                LogWarn(messageFormatted);
+            }
 		}
 
 		protected virtual string FormatMessageWithTime(string message)
@@ -85,7 +94,17 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 			else if (Settings.Insights.OnlySendLogFileInDebug == false && Settings.Insights.ShouldSendLogFile)
 				message = AddLogFileToMobileCenter(message);
 
-			object[] parametersArray = new object[] { "ThisNetworksLogr", message };
+            message = String.Concat("v", Settings.MobileCentre.VersionCode
+                                    , " "
+                                    , DateTime.Today.ToShortDateString()
+                                    , " "
+                                    , message);
+
+            var events = new Dictionary<string, string>{
+                {"Message", message.Truncate(64)}
+            };
+
+            object[] parametersArray = new object[] { tag, events };
 
             Settings.MobileCentre.MobileCentreReportMethod.Invoke(null, parametersArray);
 
@@ -93,4 +112,4 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 
 	}
 }
-//#endif
+#endif
