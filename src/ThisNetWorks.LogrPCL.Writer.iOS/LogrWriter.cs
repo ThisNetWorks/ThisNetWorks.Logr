@@ -33,11 +33,19 @@ namespace ThisNetWorks.LogrPCL.Writer
 
 		protected override void LogError(string message, Exception e)
 		{
+			LogrException logrException = null;
+
+			if (e == null)
+				logrException = new LogrException(message);
+			else
+				logrException = new LogrException(message, e);
+            
 			WriteToConsole(message);
 			if (e != null && e.StackTrace != null)
 				WriteToConsole(e.StackTrace);
-			ReportToInsights(e, message, InsightsSeverity.Error);
-			ReportToMobileCenter(_tag, e, message);
+            
+			ReportToInsights(logrException, message, InsightsSeverity.Error);
+			ReportToMobileCenter(_tag, logrException, message);
 		}
 
 		protected override string FormatMessage(string message, params object[] args)
