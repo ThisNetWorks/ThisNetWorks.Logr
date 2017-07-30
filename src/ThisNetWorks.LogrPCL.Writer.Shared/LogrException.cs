@@ -6,6 +6,11 @@ namespace ThisNetWorks.LogrPCL.Writer.Shared
 		public LogrException(string message) : base(message)
 		{
 		}
+
+        public LogrException(string message, Exception innerException) : base(message, innerException)
+        {
+            
+        }
 	}
 }
 
